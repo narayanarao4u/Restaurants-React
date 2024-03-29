@@ -19,4 +19,15 @@ router
   .put(crud.update.bind(Document))
   .delete(crud.delete.bind(Document));
 
+router.post("/test", (req, res) => {
+  res.json({ msg: "test Fired" });
+});
+
+router.get("/menu/category", (req, res) => {
+  Document.distinct("category", (err, result) => {
+    if (!err) res.json({ msg: "Data Retrieve Success", data: result });
+    else res.json({ msg: "Data Retrieve failed", err: err });
+  });
+});
+
 module.exports = router;

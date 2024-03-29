@@ -1,0 +1,9 @@
+use restaurant
+
+let billNo = 0
+let d = db.orders.find()
+
+d.forEach(function(r){
+    billNo += 1;
+    db.orders.update({_id:r._id},{$set:{billNo:billNo}})
+})

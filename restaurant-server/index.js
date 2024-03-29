@@ -41,5 +41,8 @@ app.get("/ejs", (req, res) => {
 let apiRouteMenu = require("./routes/api-route-menu");
 app.use("/api", apiRouteMenu);
 
+let apiRouteOrder = require("./routes/api-route-order");
+app.use("/api-order", apiRouteOrder);
+
 const port = process.env.PORT || 3005;
 app.listen(port, () => console.log(`listening port : ${port}`));

@@ -1,2 +1,5 @@
+node_modules
 restaurant-server/node_modules/
 restaurant-app/node_modules/
+*.xls*
+*backup*
