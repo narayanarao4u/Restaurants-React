@@ -1,9 +1,26 @@
-use restaurant
+use("restaurant");
+db.orders.findOne();
+// db.orders.updateMany({}, [{ $set: { billDate: "$updatedAt" } }]);
+db.orders.aggregate([{
+    ${$project: {
+      item.  
+    }}
+}]);
 
-let billNo = 0
-let d = db.orders.find()
+/*
+function updatebillNo() {
+  let billNo = 0;
+  let d = db.orders.find();
 
-d.forEach(function(r){
+  d.forEach(function (r) {
     billNo += 1;
-    db.orders.update({_id:r._id},{$set:{billNo:billNo}})
-})
+    db.orders.update({ _id: r._id }, { $set: { billNo: billNo } });
+  });
+}
+
+db.orders.findOne({});
+
+function testFunction() {
+  let db = use("restaurant");
+}
+*/
