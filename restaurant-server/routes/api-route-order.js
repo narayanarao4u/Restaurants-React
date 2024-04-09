@@ -1,9 +1,10 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from "express";
+import { endOfDay } from "date-fns";
+const router = Router();
 
-const CRUD = require("../controller/common.controller");
+import CRUD from "../controller/common.controller.js";
 
-const Document = require("../models/order.model").order;
+import { order as Document } from "../models/order.model.js";
 
 let crud = new CRUD();
 
@@ -29,7 +30,16 @@ router.get("/pending", (req, res) => {
 });
 
 router.get("/bills", (req, res) => {
-  Document.find({ billCompleted: true }, { counters: 0 }, (err, result) => {
+  let { frmDate, toDate } = req.query;
+  frmDate = new Date(frmDate);
+  toDate = endOfDay(new Date(toDate));
+
+  let query = {
+    billCompleted: true,
+    billDate: { $gte: frmDate, $lte: toDate },
+  };
+  console.log(query);
+  Document.find(query, { counters: 0 }, (err, result) => {
     if (!err) res.json({ msg: "Data Retrieve Success", data: result });
     else res.json({ msg: "Data Retrieve failed", err: err });
   });
@@ -54,4 +64,4 @@ function billNo(req, res, next) {
   );
 }
 
-module.exports = router;
+export default router;

@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router();
+import { Router } from "express";
+const router = Router();
 
-const CRUD = require("../controller/common.controller");
+import CRUD from "../controller/common.controller.js";
 
-const Document = require("../models/menu.model").menuItem;
+import { menuItem as Document } from "../models/menu.model.js";
 
 let crud = new CRUD();
 
@@ -30,4 +30,4 @@ router.get("/menu/category", (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;

@@ -4,4 +4,6 @@
 
 ```
 npm install -g create-react-app
+
+npm install date-fns --save
 ```

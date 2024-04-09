@@ -1,12 +1,13 @@
-const mongoose = require("mongoose");
+import pkg from "mongoose";
+const { Schema, model } = pkg;
 
-const orderSchema = new mongoose.Schema(
+const orderSchema = new Schema(
   {
     tableNo: String,
     tableSuffix: String,
     invoiceNo: String,
     invoiceDate: Date,
-    netAmt: Number
+    netAmt: Number,
   },
   {
     timestamps: true,
@@ -14,4 +15,4 @@ const orderSchema = new mongoose.Schema(
   }
 );
 
-module.exports.order = mongoose.model("order", orderSchema);
+export const order = model("order", orderSchema);

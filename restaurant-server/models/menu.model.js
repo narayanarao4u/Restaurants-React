@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+import pkg from "mongoose";
+const { Schema, model } = pkg;
 
-const menuItemSchema = new mongoose.Schema(
+const menuItemSchema = new Schema(
   {
     uid: String,
     category: String,
@@ -15,4 +16,4 @@ const menuItemSchema = new mongoose.Schema(
   }
 );
 
-module.exports.menuItem = mongoose.model("menuItem", menuItemSchema);
+export const menuItem = model("menuItem", menuItemSchema);

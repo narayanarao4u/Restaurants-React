@@ -56,4 +56,4 @@ class CRUD {
   }
 }
 
-module.exports = CRUD;
+export default CRUD;

@@ -1,11 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-let cors = require("cors");
+import express from "express";
+import pkg from "body-parser";
+const { urlencoded, json } = pkg;
+import cors from "cors";
+
+import apiRouteMenu from "./routes/api-route-menu.js";
+import apiRouteOrder from "./routes/api-route-order.js";
 
 const app = express();
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(urlencoded({ extended: true }));
+app.use(json());
 app.use(cors());
 
 app.set("view engine", "ejs");
@@ -14,16 +18,15 @@ const connStr = "mongodb://localhost:27017/restaurant";
 
 //#region Mongo connection
 
-const mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
+import pkgMongoose from "mongoose";
+const { Promise, connect } = pkgMongoose;
 
 // Connecting to the database
-mongoose
-  .connect(connStr, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: true,
-  })
+connect(connStr, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: true,
+})
   .then(() => {
     console.log("Successfully connected to the database");
   })
@@ -38,10 +41,9 @@ app.get("/ejs", (req, res) => {
 });
 
 // Use Api routes in the App
-let apiRouteMenu = require("./routes/api-route-menu");
+
 app.use("/api", apiRouteMenu);
 
-let apiRouteOrder = require("./routes/api-route-order");
 app.use("/api-order", apiRouteOrder);
 
 const port = process.env.PORT || 3005;
