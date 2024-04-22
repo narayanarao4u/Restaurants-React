@@ -1,11 +1,7 @@
 use("restaurant");
 db.orders.findOne();
 // db.orders.updateMany({}, [{ $set: { billDate: "$updatedAt" } }]);
-db.orders.aggregate([{
-    ${$project: {
-      item.  
-    }}
-}]);
+db.orders.aggregate([]);
 
 /*
 function updatebillNo() {

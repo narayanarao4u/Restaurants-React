@@ -9,45 +9,47 @@ let config = {
 
 mongoose.connect(url, config);
 
-/*
+function run0() {
+  let user1 = new User({ name: "Rao0", age: 42, email: "rao0@gmail.com" });
+  user1.save().then((res) => console.log(res));
+}
 
-let user1 = new User({ name: "Rao", age: 42 });
-user1.save().then((res) => {
-  console.log(res);
-});
+// run0();
 
-*/
-
-/*
-async function run() {
-  let user1 = new User({ name: "Rao", age: 42 });
+async function run1() {
+  let user1 = new User({ name: "Rao1", age: 43, email: "rao1@gmail.com" });
   await user1.save();
   console.log(user1);
 }
-*/
 
-/*
-async function run() {
+// run1();
+
+async function CreateandUpdate() {
   //creating user
   let user1 = await User.create({
     name: "Rao",
     age: 42,
+    email: "rao1@gmail.com",
     hobbies: ["Cricket", "Chess"],
+    adrress: {
+      street: "velampeta",
+      city: "Visakapatnam",
+    },
   });
   console.log(user1);
 
-  //updating user
-  //user1.name = "KNR";
-  //await user1.save();
+  ///updating user
+  user1.name = "KNR";
+  await user1.save();
 
   console.log(user1);
 }
-*/
+CreateandUpdate();
 
-async function run() {
+async function createuserMulti() {
   //creating user
   try {
-    let user1 = await User.create([
+    let users = await User.save([
       {
         name: "Rao111",
         age: 40,
@@ -61,9 +63,10 @@ async function run() {
         email: "Test@TETET.com",
       },
     ]);
-    console.log(user1);
+    console.log(users);
   } catch (e) {
-    console.log(e.message);
+    console.log("error :", e.message);
   }
 }
-run();
+
+//createuserMulti();
