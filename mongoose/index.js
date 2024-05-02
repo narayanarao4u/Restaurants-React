@@ -25,48 +25,99 @@ async function run1() {
 // run1();
 
 async function CreateandUpdate() {
-  //creating user
-  let user1 = await User.create({
-    name: "Rao",
-    age: 42,
-    email: "rao1@gmail.com",
-    hobbies: ["Cricket", "Chess"],
-    adrress: {
-      street: "velampeta",
-      city: "Visakapatnam",
-    },
-  });
-  console.log(user1);
+  try {
+    //creating user
+    let user1 = await User.create({
+      name : "k narayana rao",
+      age: 42,
+      email: "RAO@gmail.com",
+      hobbies: ["Cricket", "Chess"],
+      adrress: {
+        street: "velampeta",
+        city: "Visakapatnam",
+      },
+      gender: "Female",
+    });
+    console.log(user1._id, user1.name, user1.createdTime, user1.updatedTime);
 
-  ///updating user
-  user1.name = "KNR";
-  await user1.save();
-
-  console.log(user1);
+    ///updating user after 1sec
+    setTimeout(async () => {      
+      user1.name = "k rao";   
+      await user1.save();
+      console.log(user1._id, user1.name, user1.createdTime, user1.updatedTime);
+      console.log(user1._id, user1.updatedAt);
+    }, 1000);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
-CreateandUpdate();
+
+//CreateandUpdate();
 
 async function createuserMulti() {
   //creating user
   try {
-    let users = await User.save([
+    let users = await User.create([
       {
-        name: "Rao111",
+        name: "K Narayana Rao",
         age: 40,
         hobbies: ["Cricket", "Chess"],
-        email: "Test@TETET.com",
+        email: "rao@TestDB.com",
       },
       {
-        name: "Rao2222",
-        age: 40,
+        name: "B surya teja",
+        age: 42,
         hobbies: ["Cricket", "Chess"],
-        email: "Test@TETET.com",
+        email: "Test@TESTDB.com",
       },
     ]);
+    // console.table(users);
     console.log(users);
   } catch (e) {
     console.log("error :", e.message);
   }
 }
-
 //createuserMulti();
+
+
+async function deleteAll() {
+ let res = await User.deleteMany();
+  console.log(res);
+}
+//deleteAll();
+
+async function addFriend() {
+  const user = await User.findOne({ name: "K NARAYANA RAO" });
+
+  user.bestFriend = '6630d38bc38e2a1a182f852a'
+  let res = await user.save();
+  console.log(res);
+}
+
+//addFriend();
+
+async function fieldPopulate() {  
+  const user = await User.where({ name: "K NARAYANA RAO" }).populate("bestFriend");
+
+  
+  console.log("name", user[0].name, user[0].salary);
+  console.log(user[0].bestFriend.name, user[0].bestFriend.salary);
+}
+//fieldPopulate();
+//createuserMulti();
+//addFriend();
+
+async function finduser() {
+  const user = await User.findOne({ name: "K NARAYANA RAO" }).populate("bestFriend");
+  user.userDetails();
+  console.log(user.bestFriend.name);
+}
+
+//finduser();
+
+async function findByName() {
+const user = await User.UserByName("K NARAYANA RAO").populate("bestFriend");
+console.log(user.length);
+}
+
+findByName();
