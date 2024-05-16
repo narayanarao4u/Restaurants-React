@@ -1,0 +1,57 @@
+.mainGrid {
+  display: flex; 
+  height: 90%;
+}
+
+
+a.nav-link {
+  cursor: pointer;
+}
+.App {
+  text-align: center;
+  align-content: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.style0 {
+  background-image: linear-gradient(#6DE195,#C4E759 );
+  color: black;
+}
+
+.style1 { background-Image: linear-gradient(#72EDF2,#54E38E ) }
+.style2 { background-Image: linear-gradient(#D279EE,#F8C390 ) }
+.style3 { background-Image: linear-gradient(#CE9FFC,#7367F0 ) }
+.style4 { background-Image: linear-gradient(#FCCF31,#F55555 ) }
+.style5 { background-Image: linear-gradient(#FF96F9,#FF96F9 ) }
+.style6 { background-Image: linear-gradient(#72EDF2,#54E38E ) }
+.style7 { background-Image: linear-gradient(#D279EE,#F8C390 ) }
+.style8 { background-Image: linear-gradient(#CE9FFC,#7367F0 ) }
+.style9 { background-Image: linear-gradient(#FCCF31,#F55555 ) }
+.style10 { background-Image: linear-gradient(#FF96F9,#FF96F9 ) }
+
+

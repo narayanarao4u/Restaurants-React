@@ -1,0 +1,115 @@
+.amt {
+  text-align: right;
+  white-space: nowrap;
+
+}
+
+.amt::before {
+  content: "\20B9";
+}
+
+.qty{
+  text-align: center;
+  vertical-align: middle;  
+  padding: 1px 5px;
+  border-radius: 5px;
+  color: wheat;
+  font-weight: bolder;
+  margin: 0 2px;
+
+  background-color: #007bff;
+  
+}
+
+.mybtn{
+  text-align: center;
+  /* border: 1px solid gray; */
+  cursor: pointer;
+  vertical-align: middle;  
+
+}
+
+.summary {
+  /* width: 3in;   */
+  display: flex;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  
+  justify-content: space-between;
+  /* position: absolute;
+  bottom: 30px; */
+  background: rgb(171, 178, 184);
+  font-size:1.15em;
+  font-weight: bold;
+}
+
+
+.tableDiv .divTable{
+  flex: 1 1 auto;
+	overflow-y: scroll;
+}
+
+.tableDiv table{
+ width: 100%;
+}
+
+.tableDiv tr {
+  border-bottom: 1px solid goldenrod;
+}
+
+
+.tableDiv {
+  position: relative; 
+  padding: 5px;
+  font-size: 14px;
+  min-width: 4in;
+  display: flex;
+  flex-direction: column;
+  height: 600px;   
+  
+}
+
+.inputDiv {
+  display: block;
+  width: 95%;
+  padding: 0.2rem 0.3rem;
+  font-size: 13px;
+  line-height: 1.5; 
+  background-color: #fff;
+  /* background-clip: padding-box; */
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+
+input:focus{
+  outline: none;
+}
+
+
+
+
+@media print {
+ 
+  .tableDiv {
+    background-image: none;
+    background-color: white;
+    font-size: 12px; 
+
+  }
+  .tableDiv tr {
+    border-bottom: none;
+  }
+
+  .mybtn{
+    display: none;    
+  }
+
+  .qty{
+    color: black;
+    background-color: #fff;
+    padding: 0 10px;
+  }
+}
+

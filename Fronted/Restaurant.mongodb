@@ -1,0 +1,6 @@
+
+use("restaurant");
+
+db.orders.find({});
+//db.menuitems.find({itemName:''})
+// db.menuitems.deleteMany({itemName:''})
