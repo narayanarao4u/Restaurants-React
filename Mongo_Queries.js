@@ -1,6 +1,14 @@
 use("restaurant");
 db.orders.findOne();
 
+db.orders.find({},{counters:0}).sort({createdAt:-1});
+
+db.orders.find({billCompleted:false},{counters:0}).sort({createdAt:-1});
+
+db.orders.deleteMany({billCompleted:false}
+
+
+
 db.orders.aggregate([
   { "$project": { "counters": "$$ROOT.counters.item", "_id": 0 } }
 ])
