@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const User = require("./User");
+const User = require("./models/test/User");
 
 let url = "mongodb://localhost/testdb";
 let config = {
