@@ -14,7 +14,8 @@ app.use(cors());
 
 app.set("view engine", "ejs");
 
-const connStr = "mongodb://localhost:27017/restaurant";
+// const connStr = "mongodb://localhost:27017/restaurant";
+const connStr = "mongodb://0.tcp.in.ngrok.io:19777/restaurant";
 
 //#region Mongo connection
 
