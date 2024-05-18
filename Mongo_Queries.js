@@ -5,7 +5,7 @@ db.orders.find({},{counters:0}).sort({createdAt:-1});
 
 db.orders.find({billCompleted:false},{counters:0}).sort({createdAt:-1});
 
-db.orders.deleteMany({billCompleted:false}
+db.orders.deleteMany({billCompleted:false})
 
 
 

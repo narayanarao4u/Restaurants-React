@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("./models/test/User");
 
-let url = "mongodb://localhost/testdb";
+let url = "mongodb://0.tcp.in.ngrok.io:14304/testdb";
 let config = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -77,7 +77,7 @@ async function createuserMulti() {
     console.log("error :", e.message);
   }
 }
-//createuserMulti();
+createuserMulti();
 
 
 async function deleteAll() {
