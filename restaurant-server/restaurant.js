@@ -33,8 +33,13 @@ async function RunQuery() {
   async function OrderQuery() {
     let q1 = {}
 
-    const res = await order.find(q1);  
-    console.log(res);   
+    let q2 = [
+        { "$project": { "counters": "$$ROOT.counters.item", "_id": 0 } }
+      ]
+
+    // const res = await order.find(q1);  
+    const res = await order.aggregate(q2)  
+    console.log(JSON.stringify(res,null,2));   
 
   }
 

@@ -13,5 +13,7 @@ npm install date-fns --save
 
 ```
  ngrok tcp 27017
+
+ git config pull.rebase false 
  
 ```

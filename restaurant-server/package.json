@@ -2,9 +2,9 @@
   "name": "restaurant-server",
   "version": "1.0.0",
   "description": "",
-  "main": "restaurant.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon restaurant.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
