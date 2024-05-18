@@ -4,3 +4,5 @@ input docs/
 *.doc*
 *.pdf
 *backup*
+.git*
+restaurant-app
